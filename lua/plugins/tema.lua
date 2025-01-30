@@ -1,9 +1,9 @@
 return {
-	--'shaunsingh/solarized.nvim'
+	'shaunsingh/solarized.nvim'
 	
-	"ellisonleao/gruvbox.nvim", 
-	priority = 1000 , 
-	config = true, 
+	--"ellisonleao/gruvbox.nvim", 
+	--priority = 1000 , 
+	--config = true, 
 	--opts =
 	
 	--'Th3Whit3Wolf/space-nvim'

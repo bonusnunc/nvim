@@ -7,6 +7,7 @@ return {
 		lualine.setup {
 			options = {
 				globalstatus = true,
+				theme = 'solarized_light',
 			}
 		}
 	end,
