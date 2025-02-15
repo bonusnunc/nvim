@@ -16,25 +16,40 @@ local function getWords()
   return tostring(vim.fn.wordcount().words)
 end
 
-n_keymap('j', 'gj')
-n_keymap('k', 'gk')
+--n_keymap('j', 'gj')
+--n_keymap('k', 'gk')
 
-vim.opt.wrap =			true
-vim.opt.linebreak =		true
 
-vim.opt.background =	"light"
 vim.opt.fillchars = { eob = ' ' }
 vim.opt.cursorline =	true
 vim.opt.cursorcolumn =	true
 
 
 require("config.lazy")
-require('solarized').set()
---vim.g.material_style = "lighter"
---vim.cmd [[colorscheme solarized]]
+vim.cmd [[colorscheme catppuccin]]
 require('lualine').setup()
 
 require'lspconfig'.marksman.setup{}
 
+-- Probando un parser de Asciidoc
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+parser_config.asciidoc = {
+    install_info = {
+        url = 'https://github.com/cathaysia/tree-sitter-asciidoc.git',
+        files = { 'tree-sitter-asciidoc/src/parser.c', 'tree-sitter-asciidoc/src/scanner.c' },
+        branch = 'master',
+        generate_requires_npm = false,
+        requires_generate_from_grammar = false,
+    },
+}
+parser_config.asciidoc_inline = {
+    install_info = {
+        url = 'https://github.com/cathaysia/tree-sitter-asciidoc.git',
+        files = { 'tree-sitter-asciidoc_inline/src/parser.c', 'tree-sitter-asciidoc_inline/src/scanner.c' },
+        branch = 'master',
+        generate_requires_npm = false,
+        requires_generate_from_grammar = false,
+    },
+}
 --vim.o.background = "light" -- or "light" for light mode
 --vim.cmd([[colorscheme gruvbox]])

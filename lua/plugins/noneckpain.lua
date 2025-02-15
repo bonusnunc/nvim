@@ -6,7 +6,7 @@ return {
 		local noneckpain = require "no-neck-pain"
 
 		noneckpain.setup{
-			width = 80,
+			width = 110,
 
 			integrations = {
 				outline ={
