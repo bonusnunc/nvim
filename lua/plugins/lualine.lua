@@ -7,7 +7,7 @@ return {
 		lualine.setup {
 			options = {
 				globalstatus = true,
-				theme = 'catppuccin',
+				theme = 'adwaita',
 			}
 		}
 	end,

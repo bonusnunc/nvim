@@ -1,31 +1,30 @@
-vim.opt.guifont				= "Iosevka Fixed Curly Slab:h18"
+vim.opt.guifont				= 'Iosevka Fixed Curly Slab:h18'
+vim.opt.fillchars			= { eob = ' ' }
+vim.opt.scrolloff			= 3
+
+vim.opt.number				= true
+vim.opt.relativenumber		= true
+vim.opt.cursorline			= true
+vim.opt.cursorcolumn		= true
+
 vim.opt.clipboard			= "unnamedplus"
+vim.g.mapleader				= ' '
+vim.g.maplocalleader		= ' '
 
 vim.opt.tabstop				= 4
 vim.opt.softtabstop			= 4
 vim.opt.shiftwidth			= 4
 
-vim.opt.number				= true
-vim.opt.relativenumber		= true
-
-local n_keymap = function(lhs, rhs)
-    vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
-end
-
-local function getWords()
-  return tostring(vim.fn.wordcount().words)
-end
-
-vim.opt.fillchars			= { eob = ' ' }
-vim.opt.cursorline			= true
-vim.opt.cursorcolumn		= true
-
+-- local n_keymap = function(lhs, rhs)
+--    vim.api.nvim_set_keymap('n', lhs, rhs, { noremap = true, silent = true })
+-- end
 
 require("config.lazy")
-vim.cmd [[colorscheme catppuccin]]
+vim.cmd('colorscheme adwaita')
 require('lualine').setup()
 
-require'lspconfig'.marksman.setup{}
+require("luasnip.loaders.from_snipmate").lazy_load()
+
 
 -- Probando un parser de Asciidoc
 local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
@@ -49,9 +48,3 @@ parser_config.asciidoc_inline = {
     },
 }
 
-if vim.g.neovide then
-	vim.opt.linespace						= 5	
-    vim.g.neovide_cursor_animation_length	= 0.15
-	vim.g.neovide_cursor_trail_size			= 0.15
-	vim.g.neovide_cursor_vfx_mode			= "torpedo"
-end

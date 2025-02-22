@@ -1,6 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    build = ":TSUpdate | TSInstall asciidoc asciidoc_inline query",
     config = function () 
       local configs = require("nvim-treesitter.configs")
 
